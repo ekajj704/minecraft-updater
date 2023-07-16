@@ -1,15 +1,15 @@
 import playwright from "playwright";
 
 async function main(){
-    const browser = await playwright.chromium.launch({
-        headless: false,
+    const browser = await playwright.firefox.launch({
+        headless: true,
     });
     let page = await browser.newPage();
     await page.goto("https://www.minecraft.net/en-us/download/server/bedrock");
     let html = page.getByLabel("Download Minecraft Dedicated Server software for Ubuntu (Linux)");
-    console.log(await html.getAttribute("href"));
+    let link = await html.getAttribute("href");
+    console.log(link);
     browser.close();
-
 }
 
 main();
