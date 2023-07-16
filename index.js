@@ -1,4 +1,5 @@
 import playwright from "playwright";
+import {exec} from "child_process";
 
 async function main(){
     const browser = await playwright.firefox.launch({
